@@ -38,5 +38,13 @@ public T set(int index, T element) {
   return temp;
 }
 
+public OrderedArrayList() {
+  super();
+}
+
+public OrderedArrayList(T startingCapacity) {
+  super(startingCapacity);
+}
+
 
 }
