@@ -20,7 +20,23 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   return true;
 }
 
-  
+public void add(int index, T element) {
+    int ind = helper(element);
+    super.add(ind, element);
+  }
+
+
+public T set(int index, T element) {
+  int ind = helper(element);
+  T temp = this.get(index);
+  if(ind == 0){
+    super.add(element);
+  }else{
+    super.add(ind,element);
+  }
+  this.remove(temp);
+  return temp;
+}
 
 
 }
