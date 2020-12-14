@@ -21,19 +21,23 @@ public class NoNullArrayList<T> extends ArrayList<T>{
   }
   public T set (int index, T element) {
     if (element == null) {
-      throw new IllegalArgumentException("Your element is null :(");
+      throw new IllegalArgumentException("Your element is null");
     }
-    super.set(index, element);
-    return element;
+    T temp = element;
+    super.remove(index);
+    super.add(index, element);
+    return temp;
   }
+
   public NoNullArrayList() {
     super();
   }
+
   public NoNullArrayList(T startingCapacity) {
-     super();
-      if (startingCapacity == null) {
+    super();
+    if (startingCapacity == null) {
         throw new IllegalArgumentException("The initial capacity cannot be null");
-      }
+    }
   }
 
 }
