@@ -5,36 +5,45 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
 
   private int helper(T value){
     int index = 0;
-    for(int i = 0; i < this.size(); i ++){
-      if(value.compareTo(this.get(i)) < 0){
+    for(int i = 0; i < super.size(); i ++){
+      if(value.compareTo(super.get(i)) < 0){
         index = i;
         return index;
       }
     }
-    return this.size();
+    return super.size();
   }
 
   public boolean add(T element) {
+    if (element == null) {
+      throw new IllegalArgumentException("Your element is null");
+    }
   int ind = helper(element);
   super.add(ind,element);
   return true;
 }
 
 public void add(int index, T element) {
+  if (element == null) {
+    throw new IllegalArgumentException("Your element is null");
+  }
     int ind = helper(element);
     super.add(ind, element);
   }
 
 
 public T set(int index, T element) {
+  if (element == null) {
+    throw new IllegalArgumentException("Your element is null");
+  }
   int ind = helper(element);
-  T temp = this.get(index);
+  T temp = super.get(index);
   if(ind == 0){
     super.add(element);
   }else{
     super.add(ind,element);
   }
-  this.remove(temp);
+  super.remove(temp);
   return temp;
 }
 
@@ -44,6 +53,10 @@ public OrderedArrayList() {
 
 public OrderedArrayList(T startingCapacity) {
   super(startingCapacity);
+  if (startingCapacity == null) {
+    throw new IllegalArgumentException("The initial capacity cannot be null");
+  }
+
 }
 
 
