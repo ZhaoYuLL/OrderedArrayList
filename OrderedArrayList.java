@@ -38,11 +38,7 @@ public T set(int index, T element) {
   }
   int ind = helper(element);
   T temp = super.get(index);
-  if(ind == 0){
-    super.add(element);
-  }else{
-    super.add(ind,element);
-  }
+  super.add(ind,element);
   super.remove(temp);
   return temp;
 }

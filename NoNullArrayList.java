@@ -24,7 +24,6 @@ public class NoNullArrayList<T> extends ArrayList<T>{
       throw new IllegalArgumentException("Your element is null");
     }
     T temp = element;
-    super.remove(index);
     super.add(index, element);
     return temp;
   }
